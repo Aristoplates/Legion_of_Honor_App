@@ -1,0 +1,28 @@
+{
+  "_note": [
+    "The Assignment Sheet: a 2D10 (1..100) table per Campaign Season group,",
+    "plus the separate Spain table. Both are empty until transcribed - until",
+    "then the app asks 'rolled 47, which Command?' instead of guessing.",
+    "",
+    "Ranges are inclusive on both ends and must not overlap. Add a 'note' to",
+    "an entry to carry over the 'Assignment Sheet notes if any' text; the app",
+    "shows it verbatim when that entry comes up.",
+    "",
+    "If different Campaign Seasons use different tables, give each table its",
+    "own id and point campaignSeasons.json at it via 'assignmentTableId'."
+  ],
+  "defaultAssignmentTableId": "standard",
+  "spainAssignmentTableId": "spain",
+  "assignmentTables": [
+    {
+      "id": "standard",
+      "name": "Assignment Sheet",
+      "entries": []
+    },
+    {
+      "id": "spain",
+      "name": "Assignment Sheet - Spain",
+      "entries": []
+    }
+  ]
+}

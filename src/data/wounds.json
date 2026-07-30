@@ -1,0 +1,58 @@
+{
+  "_note": [
+    "The wound levels come from the booklet; the Wound Table itself does not",
+    "and is empty until transcribed.",
+    "",
+    "SEVERITY ORDER - please confirm. The booklet gives the Recovery bonus as",
+    "Gravely x3, Severely x5, Badly x8 per full round in convalescence. A",
+    "higher multiplier recovers faster, so Badly must be the MILDEST of the",
+    "three and Gravely the worst. That also fits 'If not KIA or Gravely",
+    "Wounded' (the second pistol shot) and 'Save Comrade: reduce wound 1",
+    "level'. It reads oddly in English, hence this note.",
+    "",
+    "If the Wound Table has a milder level that causes no convalescence, add it",
+    "with severity below 'badly' and recoveryMultiplier null.",
+    "",
+    "Table entries: 2D10 (1..100), +10 when a duel card was played 'To Wound',",
+    "so ranges may extend past 100. 'health' is the Health lost - a number, or",
+    "dice notation such as '1d10'. glory/experience/standingDelta are ignored",
+    "for duels ('Ignore S, G, E from Wound Table')."
+  ],
+  "wounds": {
+    "levels": [
+      {
+        "id": "badly",
+        "name": "Badly Wounded",
+        "severity": 1,
+        "recoveryMultiplier": 8,
+        "causesConvalescence": true,
+        "isKia": false
+      },
+      {
+        "id": "severely",
+        "name": "Severely Wounded",
+        "severity": 2,
+        "recoveryMultiplier": 5,
+        "causesConvalescence": true,
+        "isKia": false
+      },
+      {
+        "id": "gravely",
+        "name": "Gravely Wounded",
+        "severity": 3,
+        "recoveryMultiplier": 3,
+        "causesConvalescence": true,
+        "isKia": false
+      },
+      {
+        "id": "kia",
+        "name": "Killed in Action",
+        "severity": 4,
+        "recoveryMultiplier": null,
+        "causesConvalescence": false,
+        "isKia": true
+      }
+    ],
+    "entries": []
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "_note": [
+    "The Campaign Season Sheet. Round counts are null wherever the booklet does",
+    "not state them - the app then asks how many rounds the season has instead",
+    "of assuming. Only CS III is quoted in full by the booklet (3 In Garrison,",
+    "2 On Campaign), and CS VI must have at least 4 In Garrison rounds because",
+    "the rules refer to 'after InG VI-4'.",
+    "",
+    "Season names other than III are placeholders - fill them from the sheet.",
+    "",
+    "Event card ids are the printed labels (numeral-number for In Garrison,",
+    "numeral-letter for On Campaign). They are reference only: the app does not",
+    "hold card texts, cards stay physical.",
+    "",
+    "forcedSeniorCommanderCommandId records the army the booklet singles out",
+    "for the Senior Commander restriction in that season.",
+    "",
+    "Note that CS I has no Campaign Season Segment at all."
+  ],
+  "campaignSeasons": [
+    {
+      "number": 1,
+      "roman": "I",
+      "name": "Campaign Season I",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 2,
+      "roman": "II",
+      "name": "Campaign Season II",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": ["II-A", "II-B", "II-C"],
+      "flags": {
+        "noPrisonerExchange": false,
+        "spainBattleRounds": false,
+        "forcedSeniorCommanderCommandId": "army-of-italy"
+      }
+    },
+    {
+      "number": 3,
+      "roman": "III",
+      "name": "War of the 1st Coalition Ends",
+      "inGarrisonRounds": 3,
+      "onCampaignRounds": 2,
+      "inGarrisonEventCards": ["III-1", "III-2", "III-3"],
+      "onCampaignEventCards": ["III-A", "III-B"],
+      "flags": {
+        "noPrisonerExchange": false,
+        "spainBattleRounds": false,
+        "forcedSeniorCommanderCommandId": "army-of-italy"
+      }
+    },
+    {
+      "number": 4,
+      "roman": "IV",
+      "name": "Campaign Season IV",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": {
+        "noPrisonerExchange": false,
+        "spainBattleRounds": false,
+        "forcedSeniorCommanderCommandId": "army-of-the-orient"
+      }
+    },
+    {
+      "number": 5,
+      "roman": "V",
+      "name": "Campaign Season V",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": {
+        "noPrisonerExchange": false,
+        "spainBattleRounds": false,
+        "forcedSeniorCommanderCommandId": "army-of-the-reserve"
+      }
+    },
+    {
+      "number": 6,
+      "roman": "VI",
+      "name": "Campaign Season VI",
+      "inGarrisonRounds": 4,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": ["VI-1", "VI-2", "VI-3", "VI-4"],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 7,
+      "roman": "VII",
+      "name": "Campaign Season VII",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 8,
+      "roman": "VIII",
+      "name": "Campaign Season VIII",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 9,
+      "roman": "IX",
+      "name": "Campaign Season IX",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 10,
+      "roman": "X",
+      "name": "Campaign Season X",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": 2,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": true }
+    },
+    {
+      "number": 11,
+      "roman": "XI",
+      "name": "Campaign Season XI",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 12,
+      "roman": "XII",
+      "name": "Campaign Season XII",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": 2,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": true }
+    },
+    {
+      "number": 13,
+      "roman": "XIII",
+      "name": "Campaign Season XIII",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 14,
+      "roman": "XIV",
+      "name": "Campaign Season XIV",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    },
+    {
+      "number": 15,
+      "roman": "XV",
+      "name": "Campaign Season XV",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": [],
+      "flags": { "noPrisonerExchange": true, "spainBattleRounds": false }
+    },
+    {
+      "number": 16,
+      "roman": "XVI",
+      "name": "Campaign Season XVI",
+      "inGarrisonRounds": null,
+      "onCampaignRounds": null,
+      "inGarrisonEventCards": [],
+      "onCampaignEventCards": ["XVI-A"],
+      "flags": { "noPrisonerExchange": false, "spainBattleRounds": false }
+    }
+  ]
+}

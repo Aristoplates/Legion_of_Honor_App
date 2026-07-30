@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-ssr/
+dev-dist/
+*.local
+.vite/
+.DS_Store
+*.tsbuildinfo
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Private game data (scans of the play aids etc.)
+/private/

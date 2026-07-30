@@ -1,0 +1,112 @@
+{
+  "_note": [
+    "Only the ranks actually named in the booklet and the play aid are listed.",
+    "The rules per band (transfer test, reassignment test, duelling, Senior",
+    "Commander) are taken from the play aid and are correct. The N/G/E",
+    "requirements and the income are NOT known yet: they are 0 placeholders.",
+    "Fill them from the printed Rank Table.",
+    "",
+    "Intermediate ranks between Sous-Lieutenant and Major are missing (their",
+    "names are not in the booklet). 'order' is spaced by 10 so they can be",
+    "inserted without renumbering; the app treats the next higher 'order' as",
+    "the next rank, not order + 1."
+  ],
+  "ranks": [
+    {
+      "id": "sergent",
+      "name": "Sergent",
+      "order": 0,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": true,
+      "transfer": { "kind": "aboveStandingCheck" },
+      "reassignment": { "kind": "atLeastStandingCheck" }
+    },
+    {
+      "id": "sous-lieutenant",
+      "name": "Sous-Lieutenant",
+      "order": 10,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": true,
+      "transfer": { "kind": "aboveStandingCheck" },
+      "reassignment": { "kind": "atLeastStandingCheck" }
+    },
+    {
+      "id": "major",
+      "name": "Major",
+      "order": 50,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": true,
+      "transfer": { "kind": "aboveStandingCheck" },
+      "reassignment": { "kind": "atLeastStandingCheck" }
+    },
+    {
+      "id": "colonel",
+      "name": "Colonel",
+      "order": 60,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": true,
+      "transfer": { "kind": "belowNoticeFraction", "divisor": 15 },
+      "reassignment": { "kind": "atMost", "value": 3 }
+    },
+    {
+      "id": "general-de-brigade",
+      "name": "General de Brigade",
+      "order": 70,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": false,
+      "transfer": { "kind": "belowNoticeFraction", "divisor": 20 },
+      "reassignment": { "kind": "atMost", "value": 3 }
+    },
+    {
+      "id": "general-de-division",
+      "name": "General de Division",
+      "order": 80,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": false,
+      "freezesStanding": false,
+      "canDuel": false,
+      "transfer": { "kind": "belowNoticeFraction", "divisor": 25 },
+      "reassignment": { "kind": "atMost", "value": 3 }
+    },
+    {
+      "id": "general",
+      "name": "General",
+      "order": 90,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": true,
+      "freezesStanding": true,
+      "canDuel": false,
+      "transfer": { "kind": "forbidden" },
+      "reassignment": { "kind": "atMost", "value": 3 }
+    },
+    {
+      "id": "marechal",
+      "name": "Marechal",
+      "order": 100,
+      "requirements": { "n": 0, "g": 0, "e": 0 },
+      "income": 0,
+      "isSeniorCommanderRank": true,
+      "freezesStanding": true,
+      "canDuel": false,
+      "transfer": { "kind": "forbidden" },
+      "reassignment": { "kind": "atMost", "value": 3 }
+    }
+  ]
+}

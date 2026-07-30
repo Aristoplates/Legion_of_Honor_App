@@ -1,0 +1,67 @@
+{
+  "_note": [
+    "Legion of Honor track, Titles and Offices.",
+    "",
+    "legionOfHonor: one entry per level of the printed track. Only level 0 is",
+    "known, so the LoH check cannot raise anyone until the levels are added.",
+    "'income' and 'glory' apply only after In Garrison VI-4, when the marker is",
+    "turned face up - the app handles that gate, so enter the face-up values.",
+    "",
+    "titles: attractiveness values (Comte 5, Duc 10, Prince 15) and the",
+    "prerequisites come from the play aids and are correct. Income is a 0",
+    "placeholder. Marechal has countsForIncome false, per 'Highest Title",
+    "(other than Marechal)'.",
+    "",
+    "'minRankOrder' refers to 'order' in ranks.json: 70 = General de Brigade,",
+    "90 = General, 100 = Marechal.",
+    "",
+    "offices: the list of Offices with their income - not in the booklet, add",
+    "from the play aid. Without them 'Seek Office' has nothing to grant."
+  ],
+  "legionOfHonor": [
+    { "level": 0, "name": "None", "income": 0, "glory": 0 }
+  ],
+  "titles": [
+    {
+      "id": "comte",
+      "name": "Comte",
+      "income": 0,
+      "countsForIncome": true,
+      "attractiveness": 5,
+      "minRankOrder": 70,
+      "requiresTitleIds": [],
+      "awardedByCards": ["Carry the Day", "Lead Counterattack", "Telling Maneuver"]
+    },
+    {
+      "id": "duc",
+      "name": "Duc",
+      "income": 0,
+      "countsForIncome": true,
+      "attractiveness": 10,
+      "minRankOrder": 90,
+      "requiresTitleIds": [],
+      "awardedByCards": ["Carry the Day", "Lead Counterattack", "Telling Maneuver"]
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "income": 0,
+      "countsForIncome": true,
+      "attractiveness": 15,
+      "minRankOrder": 100,
+      "requiresTitleIds": ["duc"],
+      "awardedByCards": ["Carry the Day"]
+    },
+    {
+      "id": "marechal",
+      "name": "Marechal",
+      "income": 0,
+      "countsForIncome": false,
+      "attractiveness": 0,
+      "minRankOrder": 90,
+      "requiresTitleIds": [],
+      "awardedByCards": ["Carry the Day", "Lead Counterattack", "Telling Maneuver"]
+    }
+  ],
+  "offices": []
+}

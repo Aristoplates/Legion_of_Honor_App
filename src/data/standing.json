@@ -1,0 +1,30 @@
+{
+  "_note": [
+    "The Standing track. Only the box the booklet names is entered: setup and",
+    "every reassignment put a Grognard in '0 (5)', and the General/Marechal",
+    "hat counter goes in '+0 (5)'.",
+    "",
+    "'checkValue' is the number in parentheses - the '(S)' used in",
+    "'1D10 >= (S) -> Reassigned' and 'Result > (S)' for a transfer.",
+    "",
+    "'battleMultiplier' is an ASSUMPTION: the app multiplies the Combat card's",
+    "N and G by it and then clamps to [0 .. 2x the card value], which is how it",
+    "reads 'modified by S -> Min-Max [0..2x]'. 1 is neutral. Confirm this",
+    "against the rulebook before trusting battle results.",
+    "",
+    "'rollToIndex' maps the 1D10 of 'Roll 1D10 on Standing' to a box; while it",
+    "is empty the app asks which box the roll lands in."
+  ],
+  "standing": {
+    "boxes": [
+      {
+        "index": 0,
+        "label": "+0 (5)",
+        "checkValue": 5,
+        "battleMultiplier": 1
+      }
+    ],
+    "defaultIndex": 0,
+    "rollToIndex": []
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "_note": [
+    "Only the Commands named in the booklet are listed. The full list comes",
+    "from the Assignment Sheet - add one entry per Corps/Army there, with the",
+    "correct theater ('main', 'orient' or 'spain'), because 'We Were There!'",
+    "and the Spain rules only apply within the same theater.",
+    "",
+    "Army Staff has allowsSeniorCommander false: the booklet sends a Grognard",
+    "there when no Command with a free Senior Commander slot is available."
+  ],
+  "commands": [
+    {
+      "id": "army-staff",
+      "name": "Army Staff",
+      "theater": "main",
+      "isImperialGuard": false,
+      "isArmyStaff": true,
+      "allowsSeniorCommander": false
+    },
+    {
+      "id": "imperial-guard",
+      "name": "Imperial Guard",
+      "theater": "main",
+      "isImperialGuard": true,
+      "isArmyStaff": false,
+      "allowsSeniorCommander": true
+    },
+    {
+      "id": "army-of-italy",
+      "name": "Army of Italy",
+      "theater": "main",
+      "isImperialGuard": false,
+      "isArmyStaff": false,
+      "allowsSeniorCommander": true
+    },
+    {
+      "id": "army-of-the-orient",
+      "name": "Army of the Orient",
+      "theater": "orient",
+      "isImperialGuard": false,
+      "isArmyStaff": false,
+      "allowsSeniorCommander": true
+    },
+    {
+      "id": "army-of-the-reserve",
+      "name": "Army of the Reserve",
+      "theater": "main",
+      "isImperialGuard": false,
+      "isArmyStaff": false,
+      "allowsSeniorCommander": true
+    },
+    {
+      "id": "army-of-spain",
+      "name": "Army of Spain",
+      "theater": "spain",
+      "isImperialGuard": false,
+      "isArmyStaff": false,
+      "allowsSeniorCommander": true
+    }
+  ]
+}

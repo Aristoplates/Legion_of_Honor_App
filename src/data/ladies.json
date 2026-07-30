@@ -1,0 +1,25 @@
+{
+  "_note": [
+    "The Lady Quality Table is printed in full in the booklet, so this one is",
+    "complete and can be trusted. A 1D10 result gives the number of boxes each",
+    "quality marker moves, used both for the optional Fair Sex drift in the",
+    "Campaign Season Segment and for rolling a newly met Lady's qualities.",
+    "",
+    "ladyTracks is a GUESS: the printed track's minimum, maximum and starting",
+    "box are not in the booklet. Correct min/max/defaultValue from the Lady",
+    "display on the board - the values feed straight into support costs",
+    "((C)+(I)+(M)) and into the Court/Propose probability."
+  ],
+  "ladyQualityTable": [
+    { "range": { "min": 1, "max": 1 }, "charm": -2, "influence": -1, "money": -2 },
+    { "range": { "min": 2, "max": 3 }, "charm": -1, "influence": 0, "money": -1 },
+    { "range": { "min": 4, "max": 7 }, "charm": 0, "influence": 1, "money": 0 },
+    { "range": { "min": 8, "max": 9 }, "charm": 0, "influence": 2, "money": 1 },
+    { "range": { "min": 10, "max": 10 }, "charm": 1, "influence": 3, "money": 2 }
+  ],
+  "ladyTracks": {
+    "charm": { "min": 0, "max": 10, "defaultValue": 0 },
+    "influence": { "min": 0, "max": 10, "defaultValue": 0 },
+    "money": { "min": 0, "max": 10, "defaultValue": 0 }
+  }
+}
