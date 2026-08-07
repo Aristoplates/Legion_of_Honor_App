@@ -1,30 +1,49 @@
 {
   "_note": [
-    "The Standing track. Only the box the booklet names is entered: setup and",
-    "every reassignment put a Grognard in '0 (5)', and the General/Marechal",
-    "hat counter goes in '+0 (5)'.",
+    "The Standing track, transcribed from the Grognard Sheet's bottom row and",
+    "cross-checked against the Assignment/Reassignment rules.",
     "",
-    "'checkValue' is the number in parentheses - the '(S)' used in",
-    "'1D10 >= (S) -> Reassigned' and 'Result > (S)' for a transfer.",
+    "Printed labels run +5(0), +4(9), +3(8), +2(7), +1(6), +0(5), -1(4), -2(3),",
+    "-3(2), -4(1) — a circular 1D10 numbering where the BEST box's '(0)' means",
+    "'10', per the booklet's own house rule 'When rolling 1D10, 0 = 10'. Since",
+    "this app's dice already normalise a d10 to 1..10 (never a literal 0), the",
+    "checkValue for the best box is stored as 10, not 0, so 'Result > (S)' /",
+    "'1D10 >= (S)' compare correctly against an actual rolled 1..10 value.",
+    "That reindexing also makes 'Roll 1D10 on Standing' trivial: rollToIndex",
+    "for roll r is simply index (r-1).",
     "",
-    "'battleMultiplier' is an ASSUMPTION: the app multiplies the Combat card's",
-    "N and G by it and then clamps to [0 .. 2x the card value], which is how it",
-    "reads 'modified by S -> Min-Max [0..2x]'. 1 is neutral. Confirm this",
-    "against the rulebook before trusting battle results.",
+    "defaultIndex is the '+0 (5)' box: the default for a new or reassigned",
+    "Grognard, and (per the Grognard Sheet) the box aligned with the 'Office'",
+    "tier — consistent with the booklet's 'Standing: 0 (5) box' at setup.",
     "",
-    "'rollToIndex' maps the 1D10 of 'Roll 1D10 on Standing' to a box; while it",
-    "is empty the app asks which box the roll lands in."
+    "standingModifier is the signed value used additively in the Battle Event",
+    "N/G formula — see the note on StandingBoxSchema in schema.ts."
   ],
   "standing": {
     "boxes": [
-      {
-        "index": 0,
-        "label": "+0 (5)",
-        "checkValue": 5,
-        "battleMultiplier": 1
-      }
+      { "index": 0, "label": "-4 (1)", "checkValue": 1, "standingModifier": -4 },
+      { "index": 1, "label": "-3 (2)", "checkValue": 2, "standingModifier": -3 },
+      { "index": 2, "label": "-2 (3)", "checkValue": 3, "standingModifier": -2 },
+      { "index": 3, "label": "-1 (4)", "checkValue": 4, "standingModifier": -1 },
+      { "index": 4, "label": "+0 (5)", "checkValue": 5, "standingModifier": 0 },
+      { "index": 5, "label": "+1 (6)", "checkValue": 6, "standingModifier": 1 },
+      { "index": 6, "label": "+2 (7)", "checkValue": 7, "standingModifier": 2 },
+      { "index": 7, "label": "+3 (8)", "checkValue": 8, "standingModifier": 3 },
+      { "index": 8, "label": "+4 (9)", "checkValue": 9, "standingModifier": 4 },
+      { "index": 9, "label": "+5 (10)", "checkValue": 10, "standingModifier": 5 }
     ],
-    "defaultIndex": 0,
-    "rollToIndex": []
+    "defaultIndex": 4,
+    "rollToIndex": [
+      { "range": { "min": 1, "max": 1 }, "index": 0 },
+      { "range": { "min": 2, "max": 2 }, "index": 1 },
+      { "range": { "min": 3, "max": 3 }, "index": 2 },
+      { "range": { "min": 4, "max": 4 }, "index": 3 },
+      { "range": { "min": 5, "max": 5 }, "index": 4 },
+      { "range": { "min": 6, "max": 6 }, "index": 5 },
+      { "range": { "min": 7, "max": 7 }, "index": 6 },
+      { "range": { "min": 8, "max": 8 }, "index": 7 },
+      { "range": { "min": 9, "max": 9 }, "index": 8 },
+      { "range": { "min": 10, "max": 10 }, "index": 9 }
+    ]
   }
 }

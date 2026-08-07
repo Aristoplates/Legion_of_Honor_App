@@ -1,28 +1,187 @@
 {
   "_note": [
-    "The Assignment Sheet: a 2D10 (1..100) table per Campaign Season group,",
-    "plus the separate Spain table. Both are empty until transcribed - until",
-    "then the app asks 'rolled 47, which Command?' instead of guessing.",
+    "Transcribed from player_aid/LoH_Assignment.pdf. Each table corresponds to",
+    "one row of that sheet (a 'Season' group - some rows cover several",
+    "Campaign Seasons at once, e.g. row 'II-III' serves both CS II and CS III).",
+    "campaignSeasons.json points each CS at the correct table via",
+    "assignmentTableId.",
     "",
-    "Ranges are inclusive on both ends and must not overlap. Add a 'note' to",
-    "an entry to carry over the 'Assignment Sheet notes if any' text; the app",
-    "shows it verbatim when that entry comes up.",
+    "'note' fields carry the sheet's own dissolution/transition remarks",
+    "verbatim in meaning (not the sheet's exact footnote wording, which used",
+    "shared *, **, *** markers). The single overall rule 'There can be only",
+    "one Grognard with rank of general or marechal assigned to a command at",
+    "any one time' is the Senior Commander Restriction, already modelled via",
+    "isSeniorCommanderRank in ranks.json.",
     "",
-    "If different Campaign Seasons use different tables, give each table its",
-    "own id and point campaignSeasons.json at it via 'assignmentTableId'."
+    "The Spain table is used only for Campaign Seasons X through XV per the",
+    "sheet's own note ('Available in Campaign Seasons X through XV; all",
+    "dissolved at end of XV') - the app does not yet enforce that window in",
+    "code, so double-check the Campaign Season before rolling on it."
   ],
-  "defaultAssignmentTableId": "standard",
+  "defaultAssignmentTableId": "cs1",
   "spainAssignmentTableId": "spain",
   "assignmentTables": [
     {
-      "id": "standard",
-      "name": "Assignment Sheet",
-      "entries": []
+      "id": "cs1",
+      "name": "Assignment Sheet — Campaign Season I",
+      "entries": [
+        { "range": { "min": 1, "max": 20 }, "commandId": "army-of-the-north" },
+        { "range": { "min": 21, "max": 40 }, "commandId": "army-of-the-center", "note": "Dissolved at start of CS II: roll 1D10, odd → Army of the Sambre-Meuse, even → Army of the Rhine-Moselle (one-time, not re-rolled each season)." },
+        { "range": { "min": 41, "max": 60 }, "commandId": "army-of-the-rhine", "note": "Becomes Army of the Rhine-Moselle in CS II." },
+        { "range": { "min": 61, "max": 80 }, "commandId": "army-of-italy" },
+        { "range": { "min": 81, "max": 100 }, "commandId": "army-of-the-reserve" }
+      ]
+    },
+    {
+      "id": "cs2-3",
+      "name": "Assignment Sheet — Campaign Seasons II-III",
+      "entries": [
+        { "range": { "min": 1, "max": 20 }, "commandId": "army-of-the-north" },
+        { "range": { "min": 21, "max": 40 }, "commandId": "army-of-the-sambre-meuse", "note": "Dissolved in CS III." },
+        { "range": { "min": 41, "max": 60 }, "commandId": "army-of-italy" },
+        { "range": { "min": 61, "max": 80 }, "commandId": "army-of-the-rhine-moselle" },
+        { "range": { "min": 81, "max": 100 }, "commandId": "army-of-the-reserve" }
+      ]
+    },
+    {
+      "id": "cs4",
+      "name": "Assignment Sheet — Campaign Season IV",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "army-of-the-north" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "army-of-helvetia" },
+        { "range": { "min": 33, "max": 48 }, "commandId": "army-of-italy" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "army-of-the-rhine-moselle", "note": "Becomes Army of the Rhine." },
+        { "range": { "min": 65, "max": 82 }, "commandId": "army-of-the-reserve" },
+        { "range": { "min": 83, "max": 100 }, "commandId": "army-of-the-orient", "note": "Dissolved at end of CS IV." }
+      ]
+    },
+    {
+      "id": "cs5",
+      "name": "Assignment Sheet — Campaign Season V",
+      "entries": [
+        { "range": { "min": 1, "max": 20 }, "commandId": "army-of-the-north", "note": "Dissolved." },
+        { "range": { "min": 21, "max": 40 }, "commandId": "army-of-helvetia", "note": "Dissolved." },
+        { "range": { "min": 41, "max": 60 }, "commandId": "army-of-italy", "note": "Dissolved." },
+        { "range": { "min": 61, "max": 80 }, "commandId": "army-of-the-rhine", "note": "Dissolved." },
+        { "range": { "min": 81, "max": 100 }, "commandId": "army-of-the-reserve", "note": "Dissolved." }
+      ]
+    },
+    {
+      "id": "cs6-7",
+      "name": "Assignment Sheet — Campaign Seasons VI-VII",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "i-corps" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "ii-corps", "note": "Dissolved in CS VII." },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iii-corps" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "iv-corps" },
+        { "range": { "min": 65, "max": 82 }, "commandId": "v-corps" },
+        { "range": { "min": 83, "max": 100 }, "commandId": "vi-corps" }
+      ]
+    },
+    {
+      "id": "cs8",
+      "name": "Assignment Sheet — Campaign Season VIII",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "i-corps" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iii-corps" },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iv-corps" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "v-corps", "note": "Dissolved." },
+        { "range": { "min": 65, "max": 82 }, "commandId": "vi-corps" },
+        { "range": { "min": 83, "max": 100 }, "commandId": "vii-corps" }
+      ]
+    },
+    {
+      "id": "cs9",
+      "name": "Assignment Sheet — Campaign Season IX",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "i-corps", "note": "Dissolved." },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iii-corps" },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iv-corps" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "vi-corps" },
+        { "range": { "min": 65, "max": 82 }, "commandId": "vii-corps" },
+        { "range": { "min": 83, "max": 100 }, "commandId": "reserve-corps" }
+      ]
+    },
+    {
+      "id": "cs10",
+      "name": "Assignment Sheet — Campaign Season X",
+      "entries": [
+        { "range": { "min": 1, "max": 20 }, "commandId": "ii-corps" },
+        { "range": { "min": 21, "max": 40 }, "commandId": "iii-corps" },
+        { "range": { "min": 41, "max": 60 }, "commandId": "iv-corps", "note": "Dissolved." },
+        { "range": { "min": 61, "max": 80 }, "commandId": "reserve-corps", "note": "Dissolved." },
+        { "range": { "min": 81, "max": 100 }, "commandId": "army-of-italy" }
+      ]
+    },
+    {
+      "id": "cs11-12",
+      "name": "Assignment Sheet — Campaign Seasons XI-XII",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "ii-corps", "note": "Dissolved in CS XII." },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iii-corps", "note": "Becomes I Corps." },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iv-corps", "note": "Dissolved in CS XII." },
+        { "range": { "min": 49, "max": 64 }, "commandId": "ix-corps", "note": "Dissolved in CS XII." },
+        { "range": { "min": 65, "max": 82 }, "commandId": "xi-corps", "note": "Dissolved in CS XII." },
+        { "range": { "min": 83, "max": 100 }, "commandId": "army-of-italy", "note": "Becomes IV Corps." }
+      ]
+    },
+    {
+      "id": "cs13",
+      "name": "Assignment Sheet — Campaign Season XIII",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "i-corps", "note": "Dissolved." },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iii-corps", "note": "Dissolved." },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iv-corps" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "vii-corps" },
+        { "range": { "min": 65, "max": 82 }, "commandId": "viii-corps", "note": "Dissolved." },
+        { "range": { "min": 83, "max": 100 }, "commandId": "x-corps" }
+      ]
+    },
+    {
+      "id": "cs14",
+      "name": "Assignment Sheet — Campaign Season XIV",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "iii-corps" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iv-corps" },
+        { "range": { "min": 33, "max": 48 }, "commandId": "v-corps", "note": "Dissolved. Prisoner during CS XV without an assignment; reassigned in CS XVI Assignment Phase per the Grognard Sheet's 'II. Prepare for Play'." },
+        { "range": { "min": 49, "max": 64 }, "commandId": "vi-corps" },
+        { "range": { "min": 65, "max": 82 }, "commandId": "vii-corps", "note": "Dissolved. Prisoner during CS XV without an assignment; reassigned in CS XVI Assignment Phase per the Grognard Sheet's 'II. Prepare for Play'." },
+        { "range": { "min": 83, "max": 100 }, "commandId": "x-corps" }
+      ]
+    },
+    {
+      "id": "cs15",
+      "name": "Assignment Sheet — Campaign Season XV",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "ii-corps" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "iv-corps", "note": "Dissolved. Prisoner at start of On Campaign Round XV-A through end of Campaign Season." },
+        { "range": { "min": 33, "max": 48 }, "commandId": "vi-corps", "note": "Dissolved." },
+        { "range": { "min": 49, "max": 64 }, "commandId": "xi-corps", "note": "Dissolved. Prisoner at start of On Campaign Round XV-A through end of Campaign Season." },
+        { "range": { "min": 65, "max": 82 }, "commandId": "reserve-corps", "note": "Dissolved." },
+        { "range": { "min": 83, "max": 100 }, "commandId": "imperial-guard", "note": "Pay x1.5." }
+      ]
+    },
+    {
+      "id": "cs16",
+      "name": "Assignment Sheet — Campaign Season XVI",
+      "entries": [
+        { "range": { "min": 1, "max": 16 }, "commandId": "i-corps" },
+        { "range": { "min": 17, "max": 32 }, "commandId": "ii-corps" },
+        { "range": { "min": 33, "max": 48 }, "commandId": "iii-corps" },
+        { "range": { "min": 49, "max": 64 }, "commandId": "iv-corps" },
+        { "range": { "min": 65, "max": 82 }, "commandId": "vi-corps" },
+        { "range": { "min": 83, "max": 100 }, "commandId": "imperial-guard", "note": "Pay x1.5." }
+      ]
     },
     {
       "id": "spain",
-      "name": "Assignment Sheet - Spain",
-      "entries": []
+      "name": "Assignment Sheet — Spain (CS X-XV)",
+      "entries": [
+        { "range": { "min": 1, "max": 25 }, "commandId": "army-of-andalusia" },
+        { "range": { "min": 26, "max": 50 }, "commandId": "army-of-castille" },
+        { "range": { "min": 51, "max": 75 }, "commandId": "army-of-portugal" },
+        { "range": { "min": 76, "max": 100 }, "commandId": "army-of-catalonia" }
+      ]
     }
   ]
 }

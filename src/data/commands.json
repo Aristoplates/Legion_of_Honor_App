@@ -1,61 +1,51 @@
 {
   "_note": [
-    "Only the Commands named in the booklet are listed. The full list comes",
-    "from the Assignment Sheet - add one entry per Corps/Army there, with the",
-    "correct theater ('main', 'orient' or 'spain'), because 'We Were There!'",
-    "and the Spain rules only apply within the same theater.",
+    "Every Command named on player_aid/LoH_Assignment.pdf, across all Campaign",
+    "Seasons. 'army-staff' is the exception: it never appears on the Assignment",
+    "Sheet itself (a roll never lands on it) - it is the app's stand-in for",
+    "commandId=null, used only as the Segment Step 4 fallback ('If no Command",
+    "available -> goes to Army Staff') and as an explicit choice in the UI.",
     "",
-    "Army Staff has allowsSeniorCommander false: the booklet sends a Grognard",
-    "there when no Command with a free Senior Commander slot is available."
+    "theater: 'spain' for the four Spain armies (used only with the Spain",
+    "optional rule, Campaign Seasons X-XV per the Assignment Sheet's own note);",
+    "'orient' for the Army of the Orient (Campaign Season IV only); 'main' for",
+    "everything else. Theater match is what 'We Were There!' and the Spain",
+    "rules key off.",
+    "",
+    "allowsSeniorCommander is true everywhere except Army Staff (which the",
+    "booklet explicitly excludes: a Grognard sent there because no Command had",
+    "a free Senior Commander slot)."
   ],
   "commands": [
-    {
-      "id": "army-staff",
-      "name": "Army Staff",
-      "theater": "main",
-      "isImperialGuard": false,
-      "isArmyStaff": true,
-      "allowsSeniorCommander": false
-    },
-    {
-      "id": "imperial-guard",
-      "name": "Imperial Guard",
-      "theater": "main",
-      "isImperialGuard": true,
-      "isArmyStaff": false,
-      "allowsSeniorCommander": true
-    },
-    {
-      "id": "army-of-italy",
-      "name": "Army of Italy",
-      "theater": "main",
-      "isImperialGuard": false,
-      "isArmyStaff": false,
-      "allowsSeniorCommander": true
-    },
-    {
-      "id": "army-of-the-orient",
-      "name": "Army of the Orient",
-      "theater": "orient",
-      "isImperialGuard": false,
-      "isArmyStaff": false,
-      "allowsSeniorCommander": true
-    },
-    {
-      "id": "army-of-the-reserve",
-      "name": "Army of the Reserve",
-      "theater": "main",
-      "isImperialGuard": false,
-      "isArmyStaff": false,
-      "allowsSeniorCommander": true
-    },
-    {
-      "id": "army-of-spain",
-      "name": "Army of Spain",
-      "theater": "spain",
-      "isImperialGuard": false,
-      "isArmyStaff": false,
-      "allowsSeniorCommander": true
-    }
+    { "id": "army-staff", "name": "Army Staff", "theater": "main", "isImperialGuard": false, "isArmyStaff": true, "allowsSeniorCommander": false },
+
+    { "id": "army-of-the-north", "name": "Army of the North", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-center", "name": "Army of the Center", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-rhine", "name": "Army of the Rhine", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-italy", "name": "Army of Italy", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-reserve", "name": "Army of the Reserve", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-sambre-meuse", "name": "Army of the Sambre-Meuse", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-rhine-moselle", "name": "Army of the Rhine-Moselle", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-helvetia", "name": "Army of Helvetia", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-the-orient", "name": "Army of the Orient", "theater": "orient", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+
+    { "id": "i-corps", "name": "I Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "ii-corps", "name": "II Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "iii-corps", "name": "III Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "iv-corps", "name": "IV Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "v-corps", "name": "V Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "vi-corps", "name": "VI Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "vii-corps", "name": "VII Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "viii-corps", "name": "VIII Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "ix-corps", "name": "IX Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "x-corps", "name": "X Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "xi-corps", "name": "XI Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "reserve-corps", "name": "Reserve Corps", "theater": "main", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "imperial-guard", "name": "Imperial Guard", "theater": "main", "isImperialGuard": true, "isArmyStaff": false, "allowsSeniorCommander": true },
+
+    { "id": "army-of-andalusia", "name": "Army of Andalusia", "theater": "spain", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-castille", "name": "Army of Castille", "theater": "spain", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-portugal", "name": "Army of Portugal", "theater": "spain", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true },
+    { "id": "army-of-catalonia", "name": "Army of Catalonia", "theater": "spain", "isImperialGuard": false, "isArmyStaff": false, "allowsSeniorCommander": true }
   ]
 }

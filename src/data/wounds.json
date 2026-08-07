@@ -1,29 +1,58 @@
 {
   "_note": [
-    "The wound levels come from the booklet; the Wound Table itself does not",
-    "and is empty until transcribed.",
+    "Transcribed from player_aid/LoH_FateSheet.pdf 'Wound Table'.",
     "",
-    "SEVERITY ORDER - please confirm. The booklet gives the Recovery bonus as",
-    "Gravely x3, Severely x5, Badly x8 per full round in convalescence. A",
-    "higher multiplier recovers faster, so Badly must be the MILDEST of the",
-    "three and Gravely the worst. That also fits 'If not KIA or Gravely",
-    "Wounded' (the second pistol shot) and 'Save Comrade: reduce wound 1",
-    "level'. It reads oddly in English, hence this note.",
+    "Severity order (worst to mildest): Killed > Gravely > Severely > Badly >",
+    "Flesh Wound > Just a Scratch. Confirmed three separate ways: the Fate",
+    "Sheet's own recovery multipliers (Gravely x3 recovers slowest = worst,",
+    "Badly x8 recovers fastest of the three convalescent levels), the Rules",
+    "Summary's Duel entry ('unless killed/gravely wounded' skips the second",
+    "pistol shot — only makes sense if Gravely is at least as bad as Killed-",
+    "adjacent), and the Comrades in Arms 'Save Comrade' example ('gravely",
+    "wounded becomes severely').",
     "",
-    "If the Wound Table has a milder level that causes no convalescence, add it",
-    "with severity below 'badly' and recoveryMultiplier null.",
+    "Flesh Wound and Just a Scratch do NOT cause convalescence or Absence —",
+    "they are immediate stat hits with no recovery roll, unlike the three",
+    "'big' wounds.",
     "",
-    "Table entries: 2D10 (1..100), +10 when a duel card was played 'To Wound',",
-    "so ranges may extend past 100. 'health' is the Health lost - a number, or",
-    "dice notation such as '1d10'. glory/experience/standingDelta are ignored",
-    "for duels ('Ignore S, G, E from Wound Table')."
+    "'health' uses dice notation ('1d10÷3▼') exactly like domain/rng.ts",
+    "formulas, applied the same way; a plain number means a flat loss.",
+    "",
+    "The duel-specific '+10 to 2D10' (when the loser's card end pointed 'to",
+    "Wound') is applied by the caller before this lookup, not baked into the",
+    "ranges — the ranges below are the plain (non-duel) Battle Event table.",
+    "",
+    "The Overrun-card-specific prisoner sub-roll ('If due to Overrun Battle",
+    "Card, roll 2D10: 1 thru N -> prisoner; else carried from field') is",
+    "Battle Event logic (M6), not a data-table concern, so it is not encoded",
+    "here — only the resulting G/E/H/S deltas per level are.",
+    "",
+    "Duels ignore S, G and E from this table entirely (booklet: 'Ignore S, G,",
+    "E from Wound Table') — the caller applies duel-specific Glory/Standing",
+    "effects instead and only uses this table's Health loss."
   ],
   "wounds": {
     "levels": [
       {
+        "id": "scratch",
+        "name": "Just a Scratch",
+        "severity": 0,
+        "recoveryMultiplier": null,
+        "causesConvalescence": false,
+        "isKia": false
+      },
+      {
+        "id": "flesh-wound",
+        "name": "Flesh Wound",
+        "severity": 1,
+        "recoveryMultiplier": null,
+        "causesConvalescence": false,
+        "isKia": false
+      },
+      {
         "id": "badly",
         "name": "Badly Wounded",
-        "severity": 1,
+        "severity": 2,
         "recoveryMultiplier": 8,
         "causesConvalescence": true,
         "isKia": false
@@ -31,7 +60,7 @@
       {
         "id": "severely",
         "name": "Severely Wounded",
-        "severity": 2,
+        "severity": 3,
         "recoveryMultiplier": 5,
         "causesConvalescence": true,
         "isKia": false
@@ -39,20 +68,27 @@
       {
         "id": "gravely",
         "name": "Gravely Wounded",
-        "severity": 3,
+        "severity": 4,
         "recoveryMultiplier": 3,
         "causesConvalescence": true,
         "isKia": false
       },
       {
         "id": "kia",
-        "name": "Killed in Action",
-        "severity": 4,
+        "name": "Killed",
+        "severity": 5,
         "recoveryMultiplier": null,
         "causesConvalescence": false,
         "isKia": true
       }
     ],
-    "entries": []
+    "entries": [
+      { "range": { "min": 1, "max": 11 }, "levelId": "kia", "health": 100, "glory": 0, "experience": 0, "standingDelta": 0 },
+      { "range": { "min": 12, "max": 23 }, "levelId": "gravely", "health": 20, "glory": 5, "experience": 1, "standingDelta": 4 },
+      { "range": { "min": 24, "max": 35 }, "levelId": "severely", "health": 15, "glory": 4, "experience": 1, "standingDelta": 3 },
+      { "range": { "min": 36, "max": 48 }, "levelId": "badly", "health": 10, "glory": 3, "experience": 1, "standingDelta": 2 },
+      { "range": { "min": 49, "max": 77 }, "levelId": "flesh-wound", "health": "1d10÷3▼", "glory": 2, "experience": 1, "standingDelta": 0 },
+      { "range": { "min": 78, "max": 110 }, "levelId": "scratch", "health": 1, "glory": 1, "experience": 1, "standingDelta": 0 }
+    ]
   }
 }

@@ -1,31 +1,43 @@
 {
   "_note": [
-    "Legion of Honor track, Titles and Offices.",
+    "Legion of Honor levels, Titles and Offices — transcribed from the",
+    "Grognard Sheet's five 'Legion of Honor' columns (grande-croix down to",
+    "cavalier, each printed as 'G#/M#') and its four Title columns (Comte",
+    "M15, Duc M25, Prince M35). Both income and glory bonus apply only once",
+    "revealed (booklet: '(after InG VI-4)'); the app gates that globally via",
+    "state.lohBenefitsActive, so the values below are the face-up ones.",
     "",
-    "legionOfHonor: one entry per level of the printed track. Only level 0 is",
-    "known, so the LoH check cannot raise anyone until the levels are added.",
-    "'income' and 'glory' apply only after In Garrison VI-4, when the marker is",
-    "turned face up - the app handles that gate, so enter the face-up values.",
+    "Marechal's M22 on the Grognard Sheet continues that same rank's income",
+    "progression (see the note in ranks.json) rather than being a Title",
+    "income — the booklet is explicit that title income excludes Marechal",
+    "('Highest Title (other than Marechal)'), so titles.marechal.income stays",
+    "0 with countsForIncome:false.",
     "",
-    "titles: attractiveness values (Comte 5, Duc 10, Prince 15) and the",
-    "prerequisites come from the play aids and are correct. Income is a 0",
-    "placeholder. Marechal has countsForIncome false, per 'Highest Title",
-    "(other than Marechal)'.",
+    "minRankOrder refers to ranks.json's 'order' field: 70 = General de",
+    "Brigade, 90 = General, 100 = Marechal — matching the booklet's title",
+    "prerequisite table exactly: Comte needs General de Brigade or higher;",
+    "Duc needs Marechal or General; Marechal (the title) needs General;",
+    "Prince needs Marechal (rank) and the Duc title already held.",
     "",
-    "'minRankOrder' refers to 'order' in ranks.json: 70 = General de Brigade,",
-    "90 = General, 100 = Marechal.",
-    "",
-    "offices: the list of Offices with their income - not in the booklet, add",
-    "from the play aid. Without them 'Seek Office' has nothing to grant."
+    "offices: the Grognard Sheet and the Rules Summary Sheet ('Office M+10",
+    "income') both show exactly ONE undifferentiated Office tier, worth 10 —",
+    "no named offices (e.g. 'Chamberlain') appear anywhere in the player",
+    "aids, so there is just the one generic entry rather than a list of",
+    "distinct offices."
   ],
   "legionOfHonor": [
-    { "level": 0, "name": "None", "income": 0, "glory": 0 }
+    { "level": 0, "name": "None", "income": 0, "glory": 0 },
+    { "level": 1, "name": "Cavalier", "income": 1, "glory": 2 },
+    { "level": 2, "name": "Officier", "income": 2, "glory": 4 },
+    { "level": 3, "name": "Commandeur", "income": 3, "glory": 6 },
+    { "level": 4, "name": "Grand Officier", "income": 4, "glory": 8 },
+    { "level": 5, "name": "Grand-Croix", "income": 5, "glory": 10 }
   ],
   "titles": [
     {
       "id": "comte",
       "name": "Comte",
-      "income": 0,
+      "income": 15,
       "countsForIncome": true,
       "attractiveness": 5,
       "minRankOrder": 70,
@@ -35,7 +47,7 @@
     {
       "id": "duc",
       "name": "Duc",
-      "income": 0,
+      "income": 25,
       "countsForIncome": true,
       "attractiveness": 10,
       "minRankOrder": 90,
@@ -45,7 +57,7 @@
     {
       "id": "prince",
       "name": "Prince",
-      "income": 0,
+      "income": 35,
       "countsForIncome": true,
       "attractiveness": 15,
       "minRankOrder": 100,
@@ -63,5 +75,7 @@
       "awardedByCards": ["Carry the Day", "Lead Counterattack", "Telling Maneuver"]
     }
   ],
-  "offices": []
+  "offices": [
+    { "id": "office", "name": "Office", "income": 10 }
+  ]
 }

@@ -108,7 +108,13 @@ export interface Lady {
   barred: Array<{ grognardId: GrognardId; court: boolean; propose: boolean }>
 }
 
-export type InjuryReason = 'disgrace' | 'insult' | 'loanTerms' | 'cuckoldry'
+/**
+ * Rules Summary Sheet, "Injured Party": disgracing the command, insult,
+ * Card 52 (an insult, folded into 'insult' here), loan terms violated to the
+ * lender's disadvantage, mortal enemy (a specific card/event effect), or
+ * being made a cuckold.
+ */
+export type InjuryReason = 'disgrace' | 'insult' | 'loanTerms' | 'cuckoldry' | 'mortalEnemy'
 
 /**
  * An Injured Party relation. Held as an explicit record because it lasts
@@ -150,9 +156,12 @@ export interface OptionalRules {
 }
 
 /**
- * How the app reads "Absent", which the booklet uses throughout but never
- * defines. Configurable so the reading can be corrected against the rulebook
- * without touching code. Dead and Retired Grognards are always absent.
+ * How the app reads "Absent", used throughout the booklet but only defined
+ * in the Rules Summary Sheet: "Through furlough, convalescence, retirement,
+ * death, or prisoner." Kept configurable (rather than hardcoded) in case a
+ * table variant plays it differently, but the defaults below are that
+ * confirmed definition, not a guess. Dead and Retired are always absent
+ * regardless of these flags.
  */
 export interface AbsenceRules {
   prisoner: boolean

@@ -183,17 +183,29 @@ export interface IncomeBreakdown {
 }
 
 /**
- * InG Step 3 / OnC Step 2. ASSUMPTION: the x0.5 Absent modifier rounds down
- * (the booklet prints a rounding symbol only for the Imperial Guard's x1.5▲).
+ * InG Step 3 / OnC Step 2. Booklet: "Rank (x1.5▲ if ImpGd, x0.5 if Absent) /
+ * Highest Title (other than Marechal) / Office (x0.5 if Absent) / LoH (after
+ * InG VI-4)" — only Rank and Office carry an Absent modifier; Title and LoH
+ * are paid in full even while Absent. Rules Summary Sheet's "Income from all
+ * sources halved rounded down" is a looser paraphrase of the same rule; the
+ * booklet's own per-component annotation is more precise and is what this
+ * follows. Dead Grognards draw no income at all ("no M if dead").
  */
 export function incomeFor(state: GameState, data: GameData, g: Grognard): IncomeBreakdown {
+  const account: 'purse' | 'paris' = g.status.prisoner ? 'paris' : 'purse'
+  if (g.status.dead) {
+    return { rank: 0, title: 0, office: 0, loh: 0, total: 0, account, wife: 0 }
+  }
+
   const absent = isAbsent(state, g)
   const command = findCommand(data, g.commandId)
   const rankIncome = mustRank(data, g.rank).income
 
-  let rank = rankIncome
-  if (command?.isImperialGuard) rank = Math.ceil(rankIncome * 1.5)
-  else if (absent) rank = Math.floor(rankIncome * 0.5)
+  // The two Rank modifiers are independent and compose (e.g. a furloughed
+  // Imperial Guard officer): apply the Imperial Guard bump first, then halve
+  // for Absence, each with its own rounding direction as printed.
+  let rank = command?.isImperialGuard ? Math.ceil(rankIncome * 1.5) : rankIncome
+  if (absent) rank = Math.floor(rank * 0.5)
 
   // "Highest Title (other than Marechal)".
   const title = g.titleIds
@@ -209,15 +221,7 @@ export function incomeFor(state: GameState, data: GameData, g: Grognard): Income
 
   const wife = (wifeOf(state, g)?.qualities.money ?? 0) * 3
 
-  return {
-    rank,
-    title,
-    office,
-    loh,
-    total: rank + title + office + loh,
-    account: g.status.prisoner ? 'paris' : 'purse',
-    wife,
-  }
+  return { rank, title, office, loh, total: rank + title + office + loh, account, wife }
 }
 
 /** Glory from the Legion of Honor, paid in Segment Step 5 once revealed. */
@@ -275,8 +279,10 @@ export interface RankEligibility {
  *
  * The substitutions chain (excess N raises effective G, whose excess then
  * raises effective E), which is the reading most favourable to the player and
- * matches "Give Rank = highest possible with the new stats".
- * ASSUMPTION: the G/2 substitution rounds down.
+ * matches "Give Rank = highest possible with the new stats". The Grognard
+ * Sheet annotates this exact chain on its Glory/Experience rows — "(N1→G1)"
+ * and "(G2→E1)" — confirming both the 1:1 N→G ratio and that G→E rounds down
+ * (2 excess G per 1 E, remainder dropped).
  */
 export function rankEligibility(
   g: Grognard,

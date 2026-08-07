@@ -138,11 +138,11 @@ export const testData: GameData = {
   standing: {
     // Five boxes: check value falls as Standing improves, so a lower (S) is better.
     boxes: [
-      { index: 0, label: '-2 (8)', checkValue: 8, battleMultiplier: 0.5 },
-      { index: 1, label: '-1 (7)', checkValue: 7, battleMultiplier: 0.75 },
-      { index: 2, label: '+0 (5)', checkValue: 5, battleMultiplier: 1 },
-      { index: 3, label: '+1 (3)', checkValue: 3, battleMultiplier: 1.25 },
-      { index: 4, label: '+2 (2)', checkValue: 2, battleMultiplier: 1.5 },
+      { index: 0, label: '-2 (8)', checkValue: 8, standingModifier: -2 },
+      { index: 1, label: '-1 (7)', checkValue: 7, standingModifier: -1 },
+      { index: 2, label: '+0 (5)', checkValue: 5, standingModifier: 0 },
+      { index: 3, label: '+1 (3)', checkValue: 3, standingModifier: 1 },
+      { index: 4, label: '+2 (2)', checkValue: 2, standingModifier: 2 },
     ],
     defaultIndex: 2,
     rollToIndex: [

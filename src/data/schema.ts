@@ -108,11 +108,13 @@ export const StandingBoxSchema = z.object({
   /** The parenthesised number — the "(S)" used in transfer/reassignment tests. */
   checkValue: Int,
   /**
-   * Battle multiplier applied to the Combat card's N and G before the
-   * [0 .. 2x card] clamp. ASSUMPTION pending the printed track — see
-   * "Open rules questions" in the plan.
+   * The signed value printed before the parenthesis (+5..-4). Battle Event
+   * applies it additively to a Combat card's N and G — "increase N & G by
+   * positive S (but no more than double the original increase); reduce N & G
+   * by negative S (but no less than 0)" (Rules Summary Sheet, "Standing
+   * Effect on N & G"): clamp(cardValue + standingModifier, 0, cardValue * 2).
    */
-  battleMultiplier: z.number(),
+  standingModifier: Int,
 })
 
 export const StandingTableSchema = z.object({
