@@ -161,6 +161,47 @@ describe('incomeFor', () => {
     expect(income.office).toBe(30) // 60 x 0.5
   })
 
+  it('does not halve Title or LoH income while absent — only Rank and Office carry that modifier', () => {
+    const { state, grognards } = makeState(1)
+    const [g] = grognards
+    let s = set(state, g!, {
+      rank: 'colonel',
+      titleIds: ['comte'],
+      lohLevel: 2,
+      status: { ...g!.status, furlough: true },
+    })
+    s = { ...s, lohBenefitsActive: true }
+    const income = incomeFor(s, testData, s.grognards[g!.id]!)
+    expect(income.title).toBe(50) // Comte, unhalved
+    expect(income.loh).toBe(50) // level 2, unhalved
+  })
+
+  it('draws no income at all once dead', () => {
+    const { state, grognards } = makeState(1)
+    const [g] = grognards
+    const s = set(state, g!, {
+      rank: 'general',
+      titleIds: ['comte'],
+      officeId: 'chamberlain',
+      lohLevel: 2,
+      status: { ...g!.status, dead: true },
+    })
+    const income = incomeFor({ ...s, lohBenefitsActive: true }, testData, s.grognards[g!.id]!)
+    expect(income).toEqual({ rank: 0, title: 0, office: 0, loh: 0, total: 0, account: 'purse', wife: 0 })
+  })
+
+  it('composes the Imperial Guard bump and the Absent halving on Rank income', () => {
+    const { state, grognards } = makeState(1)
+    const [g] = grognards
+    // Colonel income 61: x1.5 up -> 92, then x0.5 down (absent) -> 46.
+    const s = set(state, g!, {
+      rank: 'colonel',
+      commandId: 'imperial-guard',
+      status: { ...g!.status, furlough: true },
+    })
+    expect(incomeFor(s, testData, s.grognards[g!.id]!).rank).toBe(46)
+  })
+
   it('pays a Prisoner into Paris instead of his Purse', () => {
     const { state, grognards } = makeState(1)
     const [g] = grognards

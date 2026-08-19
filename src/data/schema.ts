@@ -58,7 +58,7 @@ export const RankSchema = z.object({
   isSeniorCommanderRank: z.boolean().default(false),
   /** General or Marechal: the "hat" counter replaces the Standing counter. */
   freezesStanding: z.boolean().default(false),
-  /** Duels require both parties in [Sergent..Colonel]. */
+  /** Duels require both parties Sergent..Major (Colonel+: cuckoldry exception only). */
   canDuel: z.boolean().default(true),
   transfer: TransferRuleSchema,
   reassignment: ReassignmentRuleSchema,

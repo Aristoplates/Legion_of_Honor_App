@@ -12,9 +12,11 @@
     "selector already gates Marechal behind state.grandReviewAtBoulogneDone",
     "for this reason.",
     "",
-    "Intermediate ranks between Sous-Lieutenant and Major (order values 10 and",
-    "50) leave room (20,30,40) in case a finer ladder is discovered later;",
-    "none is currently known from the player aids."
+    "canDuel is false from Colonel up, per the Rules Summary Sheet ('cannot",
+    "be colonel or higher (exception: cuckoldry)'), which the user confirmed",
+    "over the Action Summary Play Aid's conflicting '[Sergent..Colonel]'",
+    "inclusive wording — the cuckoldry exception itself is a UI-level",
+    "override (M8), not a data field, since it bypasses this check entirely."
   ],
   "ranks": [
     {
@@ -97,7 +99,7 @@
       "income": 14,
       "isSeniorCommanderRank": false,
       "freezesStanding": false,
-      "canDuel": true,
+      "canDuel": false,
       "transfer": { "kind": "belowNoticeFraction", "divisor": 15 },
       "reassignment": { "kind": "atMost", "value": 3 }
     },
